@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@angular/cli": "^14.0.4"
+    "@angular/cli": "^14.0.4",
+    "angular-cli-ghpages": "^1.0.0"
   }
 }
