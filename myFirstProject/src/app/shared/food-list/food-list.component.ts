@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FoodList } from 'src/app/module/food-list';
 
 //services
 import { FoodListService } from 'src/app/services/food-list.service';
@@ -11,14 +12,39 @@ import { FoodListService } from 'src/app/services/food-list.service';
 export class FoodListComponent implements OnInit {
 
 
-  public foodList: Array<string> = []
+  public foodList: Array<FoodList> = []
   constructor(private foodListService: FoodListService) { }
 
   ngOnInit(): void {
-    this.foodList = this.foodListService.foodList()
+    this.foodListService.foodList().subscribe(
+      res => this.foodList = res,
+      error => error 
+    )
 
     this.foodListService.emitEvent.subscribe(
-      res => alert(`Voce adicionou o item => ${res} `))
+      res => {
+        alert(`Voce adicionou o item => ${res.nome} `)
+        return this.foodList.push(res)
+      })
   }
-
+  public foodListEdit(value: string, id: number){
+    this.foodListService.foodListEdit(value, id).subscribe(
+      res => {
+        return console.log(res)
+      },
+      error => error
+    )
+  }
+  public foodListDelete(id: number){
+    return this.foodListService.foodListDelete(id).subscribe(
+      res => {
+        this.foodList = this.foodList.filter(
+          item => {
+            return id !== item.id
+          }
+        )
+      },
+      error => error
+    )
+  }
 }
