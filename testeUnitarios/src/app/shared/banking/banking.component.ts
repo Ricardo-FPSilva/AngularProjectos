@@ -21,16 +21,24 @@ export class BankingComponent implements OnInit {
     return this.carteira
   }
 
-  public setSacar(value: string): number{
+  public setSacar(value: string): number | undefined{
     const sacar = Number(value)
-    console.log(sacar)
-    return sacar
-  }
-  public setDepositar(value: string): number{
-    const depositar = Number(value)
-    console.log(depositar)
-    return depositar
-  }
-  
 
+    if(isNaN(sacar) || this.poupanca < sacar){
+      return 
+    }
+
+    this.poupanca -= sacar
+    return this.carteira += sacar
+  }
+  public setDepositar(value: string): number | undefined{
+    const depositar = Number(value)
+
+    if(isNaN(depositar) || this.carteira < depositar){
+      return 
+    }
+
+    this.carteira -= depositar
+    return this.poupanca += depositar
+  }
 }
