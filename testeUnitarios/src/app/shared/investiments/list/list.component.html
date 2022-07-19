@@ -1,1 +1,9 @@
-<p>list works!</p>
+<hr>
+<h1>Investimentos</h1>
+
+<ul>
+    <li *ngFor="let investiment of investiments">
+        {{ investiment.name }} | {{investiment.value}}
+    </li>
+
+</ul>
