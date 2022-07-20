@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 
 //Module
@@ -16,7 +16,7 @@ import { ListComponent } from './shared/investiments/components/list/list.compon
   declarations: [
     AppComponent,
     BankingComponent,
-    ListComponent
+    ListComponent,
   ],
   imports: [
     BrowserModule,
