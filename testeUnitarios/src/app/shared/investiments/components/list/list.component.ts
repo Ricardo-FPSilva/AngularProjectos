@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 //Model
-import { Investiments } from '../model/investiments';
+import { Investiments } from '../../model/investiments';
+import { ListInvestimentsService } from '../../services/list-investiments.service';
 
 @Component({
   selector: 'app-list',
@@ -16,9 +17,12 @@ export class ListComponent implements OnInit {
     {name: 'Banpara', value: 100},
     {name: 'Bradesco', value: 100},
   ]
-  constructor() { }
+  constructor(private listInvestimentsService: ListInvestimentsService) {}
 
   ngOnInit(): void {
+    this.listInvestimentsService.list().subscribe(
+      res =>  console.log(res)
+    )
   }
 
 }

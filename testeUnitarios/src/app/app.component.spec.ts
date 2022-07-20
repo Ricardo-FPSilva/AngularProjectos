@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { BankingComponent } from './shared/banking/banking.component';
-import { ListComponent } from './shared/investiments/list/list.component';
+import { ListComponent } from './shared/investiments/components/list/list.component';
 
 
 describe('AppComponent', () => {
