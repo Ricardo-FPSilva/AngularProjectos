@@ -50,7 +50,7 @@ describe('ListComponent', () => {
     spyOn(service, 'list').and.returnValue(of(mockList))
 
     component.ngOnInit()
-    fixture.detectChanges()
+    fixture.detectChanges() 
 
     let investiments = fixture.debugElement.nativeElement.querySelectorAll('.list-itens')
 
